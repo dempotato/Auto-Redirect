@@ -1,0 +1,14 @@
+{
+	"files": {
+		"README.md": "7d78cca12374057e2e55a94346fcbc5b27573242cd6f012096636da7d8fcf14a",
+		"config.json": "b0a5452a3a607570855c116f0d6cd87bafff883dfeed3d42d55070072de6ceb3",
+		"index.js": "0356659d5b782d057c908374be557c7c754e43d17cf3d1fb7cc4d4f84cc3a4c8",
+		"module.json": "1678e98e3720112b206248ce90be3e77a6dd690de2a44154ad33fdf547617547"
+	},
+	"defs": {
+		"C_PLAYER_LOCATION": 5,
+		"C_RESET_ALL_DUNGEON": 1,
+		"S_LOAD_TOPO": 3,
+		"S_SPAWN_ME": 3
+	}
+}
