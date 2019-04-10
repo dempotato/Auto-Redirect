@@ -1,32 +1,40 @@
 module.exports = function AutoRedirect(mod) {
+	const command = mod.command || mod.require.command;
+	
+	if (mod.proxyAuthor !== 'caali') {
+		const options = require('./module').options
+		if (options) {
+			const settingsVersion = options.settingsVersion
+			if (settingsVersion) {
+				mod.settings = require('./' + (options.settingsMigrator || 'module_settings_migrator.js'))(mod.settings._version, settingsVersion, mod.settings)
+				mod.settings._version = settingsVersion
+			}
+		}
+	}
 	
 	const Vec3 = require('tera-vec3')
 	
-	let {
-		enabled,
-		notifications,
-		dungeonZoneLoc
-	} = require('./config.json')
-	
 	let myZone = null
 	
-	mod.command.add('尾王', () => {
-		enabled = !enabled
-		sendMessage('模块 ' + (enabled ? BLU('开启') : YEL('关闭')))
+	command.add('尾王', () => {
+		mod.settings.enabled = !mod.settings.enabled
+		sendMessage('模块 ' + (mod.settings.enabled ? BLU('开启') : YEL('关闭')))
 	})
 	
 	mod.hook('S_LOAD_TOPO', 3, (event) => {
 		myZone = event.zone
 		
 		if (myZone === 9714) {
-			mod.send('C_RESET_ALL_DUNGEON', 1, {})
+			mod.send('C_RESET_ALL_DUNGEON', 1, {
+				
+			})
 		}
 	})
 	
 	mod.hook('S_SPAWN_ME', 3, (event) => {
 		let dungeon
-		if (enabled && (dungeon = dungeonZoneLoc.filter(d => d.zone === myZone)[0])) {
-			if (notifications) {
+		if (mod.settings.enabled && (dungeon = mod.settings.dungeonZoneLoc.filter(obj => obj.zone === myZone)[0])) {
+			if (mod.settings.notifications) {
 				sendMessage('已传送至 ' + TIP(dungeon.name))
 			}
 			
@@ -39,7 +47,7 @@ module.exports = function AutoRedirect(mod) {
 	})
 	
 	function sendMessage(msg) {
-		mod.command.message(msg)
+		command.message(msg)
 	}
 	
 	function BLU(bluetext) {

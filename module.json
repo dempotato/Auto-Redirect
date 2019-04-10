@@ -1,12 +1,16 @@
 {
-	"disableAutoUpdate": false,
-	"name": "Auto-Redirect",
-	"options": {
-		"niceName": "尾王传送",
-		"guiName": "尾王传送"
-	},
-	"author": "ZC",
-	"description": "重定位人物初始位置(尾王便捷传送)",
-	"servers": ["https://raw.githubusercontent.com/zc149352394/Auto-Redirect/master/"],
-	"supportUrl": "https://github.com/zc149352394/Auto-Redirect/issues"
+    "disableAutoUpdate": false,
+    "name": "Auto-Redirect",
+    "options": {
+        "niceName": "尾王传送",
+        "guiName": "尾王传送",
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings_migrator.js",
+        "settingsVersion": 1
+    },
+    "author": "ZC",
+    "description": "重定位人物初始位置(尾王便捷传送)",
+    "servers": ["https://raw.githubusercontent.com/zc149352394/Auto-Redirect/master/"],
+    "supportUrl": "https://github.com/zc149352394/Auto-Redirect/issues",
+    "version": "80.04"
 }
