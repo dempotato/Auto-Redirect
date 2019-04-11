@@ -6,7 +6,7 @@ module.exports = function AutoRedirect(mod) {
 		if (options) {
 			const settingsVersion = options.settingsVersion
 			if (settingsVersion) {
-				mod.settings = require('./' + (options.settingsMigrator || 'module_settings_migrator.js'))(mod.settings._version, settingsVersion, mod.settings)
+				mod.settings = require('./' + (options.settingsMigrator || 'settings_migrator.js'))(mod.settings._version, settingsVersion, mod.settings)
 				mod.settings._version = settingsVersion
 			}
 		}
@@ -14,17 +14,13 @@ module.exports = function AutoRedirect(mod) {
 	
 	const Vec3 = require('tera-vec3')
 	
-	let myZone = null
-	
-	command.add('尾王', () => {
+	mod.command.add('尾王', () => {
 		mod.settings.enabled = !mod.settings.enabled
 		sendMessage('模块 ' + (mod.settings.enabled ? BLU('开启') : YEL('关闭')))
 	})
 	
-	mod.hook('S_LOAD_TOPO', 3, (event) => {
-		myZone = event.zone
-		
-		if (myZone === 9714) {
+	mod.game.me.on('change_zone', (zone, quick) => {
+		if (zone === 9714) {
 			mod.send('C_RESET_ALL_DUNGEON', 1, {
 				
 			})
@@ -33,7 +29,7 @@ module.exports = function AutoRedirect(mod) {
 	
 	mod.hook('S_SPAWN_ME', 3, (event) => {
 		let dungeon
-		if (mod.settings.enabled && (dungeon = mod.settings.dungeonZoneLoc.filter(obj => obj.zone === myZone)[0])) {
+		if (mod.settings.enabled && (dungeon = mod.settings.dungeonZoneLoc.find(obj => obj.zone === mod.game.me.zone))) {
 			if (mod.settings.notifications) {
 				sendMessage('已传送至 ' + TIP(dungeon.name))
 			}

@@ -1,14 +1,13 @@
 {
     "files": {
         "README.md": "a7426f749d8ab3021b2defead0d3131a6f82f454279eb98a964f624233fa2114",
-        "index.js": "51d904d7070a9de35ef6f6482ea65714f31948a3e19a6dd0cd140fcde505bf08",
+        "index.js": "323a21576ab7ed0786a38ab52aa1c597577dd09f3603b38513f752de472b4ab2",
         "module.json": "d1c5e1ab2cd0dd985552314c31fad9a02a38697dff88b9707de337ecf883490d",
         "settings_migrator.js": "c39f0241ffae49328dd3441f52cb11f036be22e2f35fed8cde67a5fa9c574684"
     },
     "defs": {
         "C_PLAYER_LOCATION": 5,
         "C_RESET_ALL_DUNGEON": 1,
-        "S_LOAD_TOPO": 3,
         "S_SPAWN_ME": 3
     }
 }
