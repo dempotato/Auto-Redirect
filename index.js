@@ -14,9 +14,9 @@ module.exports = function AutoRedirect(mod) {
 	
 	const Vec3 = require('tera-vec3')
 	
-	mod.command.add('尾王', () => {
+	mod.command.add("尾王", () => {
 		mod.settings.enabled = !mod.settings.enabled
-		sendMessage('模块 ' + (mod.settings.enabled ? BLU('开启') : YEL('关闭')))
+		sendMessage("模块 " + (mod.settings.enabled ? BLU("开启") : YEL("关闭")))
 	})
 	
 	mod.game.me.on('change_zone', (zone, quick) => {
@@ -31,7 +31,7 @@ module.exports = function AutoRedirect(mod) {
 		let dungeon
 		if (mod.settings.enabled && (dungeon = mod.settings.dungeonZoneLoc.find(obj => obj.zone === mod.game.me.zone))) {
 			if (mod.settings.notifications) {
-				sendMessage('已传送至 ' + TIP(dungeon.name))
+				sendMessage("已传送至 " + TIP(dungeon.name))
 			}
 			
 			event.loc = new Vec3(dungeon.loc)

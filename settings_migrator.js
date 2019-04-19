@@ -2,12 +2,12 @@ const DefaultSettings = {
     "enabled": true,
     "notifications": true, // 文字提示
     "dungeonZoneLoc": [
-        {
+        /* {
             name: "贝利卡 - 仓库",
             zone: 7005,
             loc: [-341, 8671, 2179],
             w: -3.2
-        },
+        }, */
         {
             name: "单人试炼 黄金迷宫 - 尾王",
             zone: 9032,
