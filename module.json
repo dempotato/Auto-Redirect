@@ -1,19 +1,18 @@
 {
-    "disableAutoUpdate": false,
     "name": "Auto-Redirect",
     "options": {
         "niceName": "尾王传送",
-        "guiName": "尾王传送",
+        "guiName": "尾王传送(Auto-Redirect)",
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js",
         "settingsVersion": 1
     },
-    "author": "ZC",
+    "author": "ZC / Some-AV-Popo",
     "description": "重定位人物初始位置(副本尾王便捷传送)",
     "servers": ["https://raw.githubusercontent.com/tera-mod/Auto-Redirect/master/"],
     "supportUrl": "https://github.com/tera-mod/Auto-Redirect/issues",
     "dependencies": {
         "tera-message": "https://raw.githubusercontent.com/tera-mod/tera-message/master/module.json"
     },
-    "version": "81.03"
+    "version": "85.06"
 }
