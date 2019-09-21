@@ -2,17 +2,6 @@ module.exports = function AutoRedirect(mod) {
 	const Message = require('../tera-message')
 	const MSG = new Message(mod)
 	
-	if (mod.proxyAuthor !== 'caali') {
-		const options = require('./module').options
-		if (options) {
-			const settingsVersion = options.settingsVersion
-			if (settingsVersion) {
-				mod.settings = require('./' + (options.settingsMigrator || 'settings_migrator.js'))(mod.settings._version, settingsVersion, mod.settings)
-				mod.settings._version = settingsVersion
-			}
-		}
-	}
-	
 	const Vec3 = require('tera-vec3')
 	
 	mod.command.add("尾王", () => {
@@ -40,5 +29,4 @@ module.exports = function AutoRedirect(mod) {
 			return true
 		}
 	})
-	
 }
