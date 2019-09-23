@@ -7,7 +7,25 @@ const DefaultSettings = {
             zone: 7005,
             loc: [-341, 8671, 2179],
             w: -3.2
-        }, */
+        },
+        {
+            name: "飞艇下级 - 尾王",
+            zone: 9716,
+            loc: [49504, 129121, 3722],
+            w: -2
+        },
+        {
+            name: "古代地下水道 - 尾王",
+            zone: 9777,
+            loc: [-112673, -34856, 470],
+            w: 2
+        },
+        {
+            name: "贝里克下级 - 尾王",
+            zone: 9781,
+            loc: [39419, -113077, 17212],
+            w: 2.8
+        } */
         {
             name: "单人试炼 黄金迷宫 - 尾王",
             zone: 9032,
@@ -31,24 +49,6 @@ const DefaultSettings = {
             zone: 9714,
             loc: [-10644, -7847, -9855],
             w: -2
-        },
-        {
-            name: "飞艇下级 - 尾王",
-            zone: 9716,
-            loc: [49504, 129121, 3722],
-            w: -2
-        },
-        {
-            name: "古代地下水道 - 尾王",
-            zone: 9777,
-            loc: [-112673, -34856, 470],
-            w: 2
-        },
-        {
-            name: "贝里克下级 - 尾王",
-            zone: 9781,
-            loc: [39419, -113077, 17212],
-            w: 2.8
         }
     ]
 };
@@ -74,6 +74,7 @@ module.exports = function MigrateSettings(from_ver, to_ver, settings) {
                 let oldsettings = settings
                 settings = Object.assign(DefaultSettings, {});
                 for (let option in oldsettings) {
+                    if (option == "dungeonZoneLoc") continue
                     if (settings[option]) {
                         settings[option] = oldsettings[option]
                     }
