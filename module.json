@@ -11,5 +11,5 @@
     "description": "重定位人物初始位置(副本尾王便捷传送)",
     "servers": ["https://raw.githubusercontent.com/tera-mod/Auto-Redirect/master/"],
     "supportUrl": "https://github.com/tera-mod/Auto-Redirect/issues",
-    "version": "86.06"
+    "version": "87.05"
 }
